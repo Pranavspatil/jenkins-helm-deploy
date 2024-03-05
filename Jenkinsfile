@@ -28,7 +28,7 @@ pipeline {
                 }
             }
         }
-      stage('Build on Kubernatis'){
+        /*stage('Build on Kubernatis'){
             steps{ 
                 withKubeConfig([credentialsId: 'kubeconfig']){
                     sh 'pwd'
@@ -40,6 +40,6 @@ pipeline {
                 }
 
             }
-        }
+        }*/
     }
 }
