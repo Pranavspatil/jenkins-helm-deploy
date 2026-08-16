@@ -34,5 +34,17 @@ pipeline{
         }
         }
     }
+    staeg('kubernetes build'){
+        steps{
+            script{
+                withKubeConfig([credentialsId: 'kubeconfig']) {
+               sh 'pwd'
+               sh 'cp -R helm/* .'
+               sh 'ls -ltrh'
+               sh '/usr/local/bin/helm upgrade --install petclinic-app petclinic --set image.repository=pranav1303/petclinic --set image.tag={env.BUILD_NUMBER}'   
+    }
+            }
+        }
+    }
 }
 }
