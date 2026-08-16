@@ -34,7 +34,7 @@ pipeline{
         }
         }
     }
-    staeg('kubernetes build'){
+    stage('kubernetes build'){
         steps{
             script{
                 withKubeConfig([credentialsId: 'kubeconfig']) {
