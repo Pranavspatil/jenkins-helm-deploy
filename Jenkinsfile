@@ -23,6 +23,7 @@ pipeline{
         }
         stage('build docker image'){
             steps{
+                script{
                  def customImage = docker.build("pranav1303/petclinic:${env.BUILD_NUMBER}")
                   docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 
@@ -30,6 +31,7 @@ pipeline{
                  customImage.push()
 
             }
+        }
         }
     }
 }
